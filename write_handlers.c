@@ -2,7 +2,7 @@
 
 /************************* WRITE HANDLE *************************/
 /**
- * handle_write_char - Prints a string
+ * handleWriteCh - Prints a string
  * @c: char types.
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags.
@@ -12,7 +12,7 @@
  *
  * Return: Number of chars printed.
  */
-int handle_write_char(char c, char buffer[],
+int handleWriteCh(char c, char buffer[],
 	int flags, int width, int precision, int size)
 { /* char is stored at left and paddind at buffer's right */
 	int i = 0;
@@ -46,7 +46,7 @@ int handle_write_char(char c, char buffer[],
 
 /************************* WRITE NUMBER *************************/
 /**
- * write_number - Prints a string
+ * writeNum - Prints a string
  * @is_negative: Lista of arguments
  * @ind: char types.
  * @buffer: Buffer array to handle print
@@ -57,7 +57,7 @@ int handle_write_char(char c, char buffer[],
  *
  * Return: Number of chars printed.
  */
-int write_number(int is_negative, int ind, char buffer[],
+int writeNum(int is_negative, int ind, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int length = buffSize - ind - 1;
@@ -74,12 +74,12 @@ int write_number(int is_negative, int ind, char buffer[],
 	else if (flags & F_SPACE)
 		extra_ch = ' ';
 
-	return (write_num(ind, buffer, flags, width, precision,
+	return (writeNumber(ind, buffer, flags, width, precision,
 		length, padd, extra_ch));
 }
 
 /**
- * write_num - Write a number using a bufffer
+ * writeNumber - Write a number using a bufffer
  * @ind: Index at which the number starts on the buffer
  * @buffer: Buffer
  * @flags: Flags
@@ -91,7 +91,7 @@ int write_number(int is_negative, int ind, char buffer[],
  *
  * Return: Number of printed chars.
  */
-int write_num(int ind, char buffer[],
+int writeNumber(int ind, char buffer[],
 	int flags, int width, int prec,
 	int length, char padd, char extra_c)
 {
@@ -138,7 +138,7 @@ int write_num(int ind, char buffer[],
 }
 
 /**
- * write_unsgnd - Writes an unsigned number
+ * writeUnsgnd - Writes an unsigned number
  * @is_negative: Number indicating if the num is negative
  * @ind: Index at which the number starts in the buffer
  * @buffer: Array of chars
@@ -149,7 +149,7 @@ int write_num(int ind, char buffer[],
  *
  * Return: Number of written chars.
  */
-int write_unsgnd(int is_negative, int ind,
+int writeUnsgnd(int is_negative, int ind,
 	char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -196,7 +196,7 @@ int write_unsgnd(int is_negative, int ind,
 }
 
 /**
- * write_pointer - Write a memory address
+ * writePointer - Write a memory address
  * @buffer: Arrays of chars
  * @ind: Index at which the number starts in the buffer
  * @length: Length of number
@@ -208,7 +208,7 @@ int write_unsgnd(int is_negative, int ind,
  *
  * Return: Number of written chars.
  */
-int write_pointer(char buffer[], int ind, int length,
+int writePointer(char buffer[], int ind, int length,
 	int width, int flags, char padd, char extra_c, int padd_start)
 {
 	int i;

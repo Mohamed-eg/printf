@@ -20,7 +20,7 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 		{'i', printIntegr}, {'d', printIntegr}, {'b', printBinary},
 		{'u', printUnsigned}, {'o', printOctalNum}, {'x', printHexaDec},
 		{'X', printHexUpper}, {'p', printPointer}, {'S', printNONprintable},
-		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
+		{'r', getReverse}, {'R', printRot13Str}, {'\0', NULL}
 	};
 	for (i = 0; fmt_types[i].fmt != '\0'; i++)
 		if (fmt[*ind] == fmt_types[i].fmt)

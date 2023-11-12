@@ -48,7 +48,7 @@ int printPointer(va_list types, char buffer[],
 	ind++;
 
 	/*return (write(1, &buffer[i], buffSize - i - 1));*/
-	return (write_pointer(buffer, ind, length,
+	return (writePointer(buffer, ind, length,
 		width, flags, padd, extra_c, padd_start));
 }
 
@@ -94,7 +94,7 @@ int printNONprintable(va_list types, char buffer[],
 
 /************************* PRINT REVERSE *************************/
 /**
- * print_reverse - Prints reverse string.
+ * getReverse - Prints reverse string.
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -104,7 +104,7 @@ int printNONprintable(va_list types, char buffer[],
  * Return: Numbers of chars printed
  */
 
-int print_reverse(va_list types, char buffer[],
+int getReverse(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char *str;
@@ -137,7 +137,7 @@ int print_reverse(va_list types, char buffer[],
 }
 /************************* PRINT A STRING IN ROT13 *************************/
 /**
- * print_rot13string - Print a string in rot13.
+ * printRot13Str - Print a string in rot13.
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -146,7 +146,7 @@ int print_reverse(va_list types, char buffer[],
  * @size: Size specifier
  * Return: Numbers of chars printed
  */
-int print_rot13string(va_list types, char buffer[],
+int printRot13Str(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char x;

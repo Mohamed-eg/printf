@@ -17,7 +17,7 @@ int printChar(va_list types, char buffer[],
 {
 	char c = va_arg(types, int);
 
-	return (handle_write_char(c, buffer, flags, width, precision, size));
+	return (handleWriteCh(c, buffer, flags, width, precision, size));
 }
 /************************* PRINT A STRING *************************/
 /**
@@ -138,7 +138,7 @@ int printIntegr(va_list types, char buffer[],
 
 	i++;
 
-	return (write_number(is_negative, i, buffer, flags, width, precision, size));
+	return (writeNum(is_negative, i, buffer, flags, width, precision, size));
 }
 
 /************************* PRINT BINARY *************************/

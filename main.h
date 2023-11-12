@@ -8,11 +8,11 @@
 #define buffSize 1024
 
 /* FLAGS */
-#define flagMinus 1
-#define flagPlus 2
-#define flagZero 4
-#define flagHash 8
-#define flagSpace 16
+#define F_MINUS 1
+#define F_PLUS 2
+#define F_ZERO 4
+#define F_HASH 8
+#define F_SPACE 16
 
 /* SIZES */
 #define S_LONG 2

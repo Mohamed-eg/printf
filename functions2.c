@@ -20,14 +20,14 @@ int printPointer(va_list types, char buffer[],
 	char map_to[] = "0123456789abcdef";
 	void *addrs = va_arg(types, void *);
 
-	UNUSED(width);
-	UNUSED(size);
+	unUsed(width);
+	unUsed(size);
 
 	if (addrs == NULL)
 		return (write(1, "(nil)", 5));
 
 	buffer[buffSize - 1] = '\0';
-	UNUSED(precision);
+	unUsed(precision);
 
 	num_addrs = (unsigned long)addrs;
 
@@ -69,10 +69,10 @@ int printNONprintable(va_list types, char buffer[],
 	int i = 0, offset = 0;
 	char *str = va_arg(types, char *);
 
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
+	unUsed(flags);
+	unUsed(width);
+	unUsed(precision);
+	unUsed(size);
 
 	if (str == NULL)
 		return (write(1, "(null)", 6));
@@ -110,16 +110,16 @@ int getReverse(va_list types, char buffer[],
 	char *str;
 	int i, count = 0;
 
-	UNUSED(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(size);
+	unUsed(buffer);
+	unUsed(flags);
+	unUsed(width);
+	unUsed(size);
 
 	str = va_arg(types, char *);
 
 	if (str == NULL)
 	{
-		UNUSED(precision);
+		unUsed(precision);
 
 		str = ")Null(";
 	}
@@ -157,11 +157,11 @@ int printRot13Str(va_list types, char buffer[],
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	str = va_arg(types, char *);
-	UNUSED(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
+	unUsed(buffer);
+	unUsed(flags);
+	unUsed(width);
+	unUsed(precision);
+	unUsed(size);
 
 	if (str == NULL)
 		str = "(AHYY)";

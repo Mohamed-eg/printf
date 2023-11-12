@@ -36,11 +36,11 @@ int printString(va_list types, char buffer[],
 	int length = 0, i;
 	char *str = va_arg(types, char *);
 
-	UNUSED(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
+	unUsed(buffer);
+	unUsed(flags);
+	unUsed(width);
+	unUsed(precision);
+	unUsed(size);
 	if (str == NULL)
 	{
 		str = "(null)";
@@ -88,12 +88,12 @@ int printString(va_list types, char buffer[],
 int printPercent(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	UNUSED(types);
-	UNUSED(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
+	unUsed(types);
+	unUsed(buffer);
+	unUsed(flags);
+	unUsed(width);
+	unUsed(precision);
+	unUsed(size);
 	return (write(1, "%%", 1));
 }
 
@@ -159,11 +159,11 @@ int printBinary(va_list types, char buffer[],
 	unsigned int a[32];
 	int count;
 
-	UNUSED(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
+	unUsed(buffer);
+	unUsed(flags);
+	unUsed(width);
+	unUsed(precision);
+	unUsed(size);
 
 	n = va_arg(types, unsigned int);
 	m = 2147483648U; /* (2 ^ 31) */

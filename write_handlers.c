@@ -18,8 +18,8 @@ int handleWriteCh(char c, char buffer[],
 	int i = 0;
 	char padd = ' ';
 
-	UNUSED(precision);
-	UNUSED(size);
+	unUsed(precision);
+	unUsed(size);
 
 	if (flags & F_ZERO)
 		padd = '0';
@@ -63,7 +63,7 @@ int writeNum(int is_negative, int ind, char buffer[],
 	int length = buffSize - ind - 1;
 	char padd = ' ', extra_ch = 0;
 
-	UNUSED(size);
+	unUsed(size);
 
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
@@ -157,8 +157,8 @@ int writeUnsgnd(int is_negative, int ind,
 	int length = buffSize - ind - 1, i = 0;
 	char padd = ' ';
 
-	UNUSED(is_negative);
-	UNUSED(size);
+	unUsed(is_negative);
+	unUsed(size);
 
 	if (precision == 0 && ind == buffSize - 2 && buffer[ind] == '0')
 		return (0); /* printf(".0d", 0)  no char is printed */

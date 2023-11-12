@@ -107,11 +107,11 @@ char buffer[],
 	int flags, int width, int precision, int size);
 
 /****************** UTILS ******************/
-int is_printable(char);
-int append_hexa_code(char, char[], int);
-int is_digit(char);
+int IsItPrintable(char);
+int appendHexaCode(char, char[], int);
+int IsItDigit(char);
 
-long int convert_size_number(long int num, int size);
-long int convert_size_unsgnd(unsigned long int num, int size);
+long int ConvertSizeNum(long int num, int size);
+long int ConvertSizeUnsign(unsigned long int num, int size);
 
 #endif

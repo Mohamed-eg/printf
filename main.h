@@ -1,11 +1,11 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef mainH
+#define mainH
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
 
 #define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
+#define buffSize 1024
 
 /* FLAGS */
 #define F_MINUS 1

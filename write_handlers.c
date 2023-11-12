@@ -29,15 +29,15 @@ int handle_write_char(char c, char buffer[],
 
 	if (width > 1)
 	{
-		buffer[BUFF_SIZE - 1] = '\0';
+		buffer[buffSize - 1] = '\0';
 		for (i = 0; i < width - 1; i++)
-			buffer[BUFF_SIZE - i - 2] = padd;
+			buffer[buffSize - i - 2] = padd;
 
 		if (flags & F_MINUS)
 			return (write(1, &buffer[0], 1) +
-					write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
+					write(1, &buffer[buffSize - i - 1], width - 1));
 		else
-			return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
+			return (write(1, &buffer[buffSize - i - 1], width - 1) +
 					write(1, &buffer[0], 1));
 	}
 
@@ -60,7 +60,7 @@ int handle_write_char(char c, char buffer[],
 int write_number(int is_negative, int ind, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int length = BUFF_SIZE - ind - 1;
+	int length = buffSize - ind - 1;
 	char padd = ' ', extra_ch = 0;
 
 	UNUSED(size);
@@ -97,9 +97,9 @@ int write_num(int ind, char buffer[],
 {
 	int i, padd_start = 1;
 
-	if (prec == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0' && width == 0)
+	if (prec == 0 && ind == buffSize - 2 && buffer[ind] == '0' && width == 0)
 		return (0); /* printf(".0d", 0)  no char is printed */
-	if (prec == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
+	if (prec == 0 && ind == buffSize - 2 && buffer[ind] == '0')
 		buffer[ind] = padd = ' '; /* width is displayed with padding ' ' */
 	if (prec > 0 && prec < length)
 		padd = ' ';
@@ -154,13 +154,13 @@ int write_unsgnd(int is_negative, int ind,
 	int flags, int width, int precision, int size)
 {
 	/* The number is stored at the bufer's right and starts at position i */
-	int length = BUFF_SIZE - ind - 1, i = 0;
+	int length = buffSize - ind - 1, i = 0;
 	char padd = ' ';
 
 	UNUSED(is_negative);
 	UNUSED(size);
 
-	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
+	if (precision == 0 && ind == buffSize - 2 && buffer[ind] == '0')
 		return (0); /* printf(".0d", 0)  no char is printed */
 
 	if (precision > 0 && precision < length)
@@ -248,5 +248,5 @@ int write_pointer(char buffer[], int ind, int length,
 	buffer[--ind] = '0';
 	if (extra_c)
 		buffer[--ind] = extra_c;
-	return (write(1, &buffer[ind], BUFF_SIZE - ind - 1));
+	return (write(1, &buffer[ind], buffSize - ind - 1));
 }

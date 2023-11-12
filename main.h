@@ -32,12 +32,12 @@ struct fmt
 
 
 /**
- * typedef struct fmt fmt_t - Struct op
+ * typedef struct fmt FMT_TY - Struct op
  *
  * @fmt: The format.
  * @fm_t: The function associated.
  */
-typedef struct fmt fmt_t;
+typedef struct fmt FMT_TY;
 
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,

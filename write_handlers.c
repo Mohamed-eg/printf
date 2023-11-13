@@ -16,6 +16,7 @@ int handleWriteCh(char c, char buffer[],
 { /* char is stored at left and paddind at buffer's right */
 	int i = 0;
 	char padd = ' ';
+	
 	unUsed(precision);
 	unUsed(size);
 	if (flags & F_ZERO)
@@ -55,6 +56,7 @@ int writeNum(int is_negative, int ind, char buffer[],
 {
 	int length = buffSize - ind - 1;
 	char padd = ' ', extra_ch = 0;
+
 	unUsed(size);
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
@@ -146,6 +148,7 @@ int writeUnsgnd(int is_negative, int ind,
 	/* The number is stored at the bufer's right and starts at position i */
 	int length = buffSize - ind - 1, i = 0;
 	char padd = ' ';
+
 	unUsed(is_negative);
 	unUsed(size);
 	if (precision == 0 && ind == buffSize - 2 && buffer[ind] == '0')

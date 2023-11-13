@@ -53,6 +53,7 @@ int printOctalNum(va_list types, char buffer[],
 	unsigned long int num = va_arg(types, unsigned long int);
 	unsigned long int init_num = num;
 	unUsed(width);
+
 	num = ConvertSizeUnsign(num, size);
 
 	if (num == 0)
@@ -126,6 +127,7 @@ int printHexa(va_list types, char map_to[], char buffer[],
 	int i = buffSize - 2;
 	unsigned long int num = va_arg(types, unsigned long int);
 	unsigned long int init_num = num;
+	
 	unUsed(width);
 	num = ConvertSizeUnsign(num, size);
 	if (num == 0)

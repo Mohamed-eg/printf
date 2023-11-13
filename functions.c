@@ -33,11 +33,13 @@ int printString(va_list types, char buffer[],
 {
 	int length = 0, i;
 	char *str = va_arg(types, char *);
+
 	unUsed(buffer);
 	unUsed(flags);
 	unUsed(width);
 	unUsed(precision);
 	unUsed(size);
+	
 	if (str == NULL)
 	{
 		str = "(null)";
@@ -151,11 +153,13 @@ int printBinary(va_list types, char buffer[],
 	unsigned int n, m, i, sum;
 	unsigned int a[32];
 	int count;
+
 	unUsed(buffer);
 	unUsed(flags);
 	unUsed(width);
 	unUsed(precision);
 	unUsed(size);
+
 	n = va_arg(types, unsigned int);
 	m = 2147483648U; /* (2 ^ 31) */
 	a[0] = n / m;
@@ -171,6 +175,7 @@ int printBinary(va_list types, char buffer[],
 		{
 			char z = '0' + a[i];
 			write(1, &z, 1);
+
 			count++;
 		}
 	}

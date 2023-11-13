@@ -1,7 +1,5 @@
 #include "main.h"
-
-/** PRINT CHAR **/
-
+/** ----------- print chart------------**/
 /**
  * printChar - Prints a char
  * @types: List a of arguments
@@ -19,7 +17,7 @@ int printChar(va_list types, char buffer[],
 
 	return (handleWriteCh(c, buffer, flags, width, precision, size));
 }
-/************************* PRINT A STRING *************************/
+/*-----------------------print string---------------------*/
 /**
  * printString - Prints a string
  * @types: List a of arguments
@@ -35,7 +33,6 @@ int printString(va_list types, char buffer[],
 {
 	int length = 0, i;
 	char *str = va_arg(types, char *);
-
 	unUsed(buffer);
 	unUsed(flags);
 	unUsed(width);
@@ -47,13 +44,10 @@ int printString(va_list types, char buffer[],
 		if (precision >= 6)
 			str = "      ";
 	}
-
 	while (str[length] != '\0')
 		length++;
-
 	if (precision >= 0 && precision < length)
 		length = precision;
-
 	if (width > length)
 	{
 		if (flags & F_MINUS)
@@ -71,10 +65,9 @@ int printString(va_list types, char buffer[],
 			return (width);
 		}
 	}
-
 	return (write(1, str, length));
 }
-/************************* PRINT PERCENT SIGN *************************/
+/**-------------------------print %----------------------***/
 /**
  * printPercent - Prints a percent sign
  * @types: Lista of arguments
@@ -97,7 +90,7 @@ int printPercent(va_list types, char buffer[],
 	return (write(1, "%%", 1));
 }
 
-/************************* PRINT INT *************************/
+/**---------------------print int----------------------**/
 /**
  * printIntegr - Print int
  * @types: Lista of arguments
@@ -141,7 +134,7 @@ int printIntegr(va_list types, char buffer[],
 	return (writeNum(is_negative, i, buffer, flags, width, precision, size));
 }
 
-/************************* PRINT BINARY *************************/
+/**---------------------------- print Bin---------------------------***/
 /**
  * printBinary - Prints an unsigned number
  * @types: Lista of arguments
@@ -158,13 +151,11 @@ int printBinary(va_list types, char buffer[],
 	unsigned int n, m, i, sum;
 	unsigned int a[32];
 	int count;
-
 	unUsed(buffer);
 	unUsed(flags);
 	unUsed(width);
 	unUsed(precision);
 	unUsed(size);
-
 	n = va_arg(types, unsigned int);
 	m = 2147483648U; /* (2 ^ 31) */
 	a[0] = n / m;
@@ -179,7 +170,6 @@ int printBinary(va_list types, char buffer[],
 		if (sum || i == 31)
 		{
 			char z = '0' + a[i];
-
 			write(1, &z, 1);
 			count++;
 		}

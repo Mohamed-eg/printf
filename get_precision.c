@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * getPrecision - Calculates the precision for printing
  * @format: Formatted string in which to print the arguments
@@ -12,12 +11,9 @@ int getPrecision(const char *format, int *i, va_list list)
 {
 	int curr_i = *i + 1;
 	int precision = -1;
-
 	if (format[curr_i] != '.')
 		return (precision);
-
 	precision = 0;
-
 	for (curr_i += 1; format[curr_i] != '\0'; curr_i++)
 	{
 		if (IsItDigit(format[curr_i]))
@@ -36,6 +32,5 @@ int getPrecision(const char *format, int *i, va_list list)
 	}
 
 	*i = curr_i - 1;
-
 	return (precision);
 }

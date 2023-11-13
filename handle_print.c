@@ -14,7 +14,7 @@
 int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int i, unknow_len = 0, printed_chars = -1;
+	int i, unknow_len = 0, printedCharts = -1;
 	FMT_TY fmt_types[] = {
 		{'c', printChar}, {'s', printString}, {'%', printPercent},
 		{'i', printIntegr}, {'d', printIntegr}, {'b', printBinary},
@@ -45,5 +45,5 @@ int handle_print(const char *fmt, int *ind, va_list list, char buffer[],
 		unknow_len += write(1, &fmt[*ind], 1);
 		return (unknow_len);
 	}
-	return (printed_chars);
+	return (printedCharts);
 }

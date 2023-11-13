@@ -35,7 +35,7 @@ int printUnsigned(va_list types, char buffer[],
 	return (writeUnsgnd(0, i, buffer, flags, width, precision, size));
 }
 
-/************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
+/**------------- print unsigned number in octal  -------------**/
 /**
  * printOctalNum - Prints an unsigned number in octal notation
  * @types: Lista of arguments
@@ -49,13 +49,10 @@ int printUnsigned(va_list types, char buffer[],
 int printOctalNum(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-
 	int i = buffSize - 2;
 	unsigned long int num = va_arg(types, unsigned long int);
 	unsigned long int init_num = num;
-
 	unUsed(width);
-
 	num = ConvertSizeUnsign(num, size);
 
 	if (num == 0)
@@ -68,16 +65,13 @@ int printOctalNum(va_list types, char buffer[],
 		buffer[i--] = (num % 8) + '0';
 		num /= 8;
 	}
-
 	if (flags & F_HASH && init_num != 0)
 		buffer[i--] = '0';
-
 	i++;
-
 	return (writeUnsgnd(0, i, buffer, flags, width, precision, size));
 }
 
-/************** PRINT UNSIGNED NUMBER IN HEXADECIMAL **************/
+/**---------------- Prints an unsigned number in hexadecimal --------------**/
 /**
  * printHexaDec - Prints an unsigned number in hexadecimal notation
  * @types: Lista of arguments
@@ -95,7 +89,7 @@ int printHexaDec(va_list types, char buffer[],
 		flags, 'x', width, precision, size));
 }
 
-/************* PRINT UNSIGNED NUMBER IN UPPER HEXADECIMAL **************/
+/*------------- Prints an unsigned number in upper hexadecimal -------------**/
 /**
  * printHexUpper - Prints an unsigned number in upper hexadecimal notation
  * @types: Lista of arguments
@@ -112,8 +106,7 @@ int printHexUpper(va_list types, char buffer[],
 	return (printHexa(types, "0123456789ABCDEF", buffer,
 		flags, 'X', width, precision, size));
 }
-
-/************** PRINT HEXX NUM IN LOWER OR UPPER **************/
+/*-------------- Prints a hexadecimal number in lower or upper --------------*/
 /**
  * printHexa - Prints a hexadecimal number in lower or upper
  * @types: Lista of arguments
@@ -133,29 +126,22 @@ int printHexa(va_list types, char map_to[], char buffer[],
 	int i = buffSize - 2;
 	unsigned long int num = va_arg(types, unsigned long int);
 	unsigned long int init_num = num;
-
 	unUsed(width);
-
 	num = ConvertSizeUnsign(num, size);
-
 	if (num == 0)
 		buffer[i--] = '0';
 
 	buffer[buffSize - 1] = '\0';
-
 	while (num > 0)
 	{
 		buffer[i--] = map_to[num % 16];
 		num /= 16;
 	}
-
 	if (flags & F_HASH && init_num != 0)
 	{
 		buffer[i--] = flag_ch;
 		buffer[i--] = '0';
 	}
-
 	i++;
-
 	return (writeUnsgnd(0, i, buffer, flags, width, precision, size));
 }

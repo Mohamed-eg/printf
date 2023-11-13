@@ -1,5 +1,5 @@
 #include "main.h"
-/************************ WRITE HANDLE *************************/
+/*------------------- handle Write -------------------**/
 /**
  * handleWriteCh - Prints a string
  * @c: char types.
@@ -37,7 +37,7 @@ int handleWriteCh(char c, char buffer[],
 
 	return (write(1, &buffer[0], 1));
 }
-/************************* Write *************************/
+/**---------------------- WRITE ----------------------**/
 /**
  * writeNum - Prints a string
  * @is_negative: Lista of arguments
@@ -55,9 +55,7 @@ int writeNum(int is_negative, int ind, char buffer[],
 {
 	int length = buffSize - ind - 1;
 	char padd = ' ', extra_ch = 0;
-
 	unUsed(size);
-
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
 	if (is_negative)
@@ -66,7 +64,6 @@ int writeNum(int is_negative, int ind, char buffer[],
 		extra_ch = '+';
 	else if (flags & F_SPACE)
 		extra_ch = ' ';
-
 	return (writeNumber(ind, buffer, flags, width, precision,
 		length, padd, extra_ch));
 }
@@ -149,13 +146,10 @@ int writeUnsgnd(int is_negative, int ind,
 	/* The number is stored at the bufer's right and starts at position i */
 	int length = buffSize - ind - 1, i = 0;
 	char padd = ' ';
-
 	unUsed(is_negative);
 	unUsed(size);
-
 	if (precision == 0 && ind == buffSize - 2 && buffer[ind] == '0')
 		return (0); /* printf(".0d", 0)  no char is printed */
-
 	if (precision > 0 && precision < length)
 		padd = ' ';
 
@@ -164,17 +158,13 @@ int writeUnsgnd(int is_negative, int ind,
 		buffer[--ind] = '0';
 		length++;
 	}
-
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
-
 	if (width > length)
 	{
 		for (i = 0; i < width - length; i++)
 			buffer[i] = padd;
-
 		buffer[i] = '\0';
-
 		if (flags & F_MINUS) /* Asign extra char to left of buffer [buffer>padd]*/
 		{
 			return (write(1, &buffer[ind], length) + write(1, &buffer[0], i));

@@ -10,7 +10,7 @@ int getSize(const char *format, int *i)
 {
 	int curr_i = *i + 1;
 	int size = 0;
-	
+
 	if (format[curr_i] == 'l')
 		size = longSize;
 	else if (format[curr_i] == 'h')

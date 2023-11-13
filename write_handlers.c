@@ -16,7 +16,7 @@ int handleWriteCh(char c, char buffer[],
 { /* char is stored at left and paddind at buffer's right */
 	int i = 0;
 	char padd = ' ';
-	
+
 	unUsed(precision);
 	unUsed(size);
 	if (flags & F_ZERO)

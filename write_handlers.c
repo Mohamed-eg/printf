@@ -104,19 +104,19 @@ int writeNumber(int ind, char buffer[],
 		for (i = 1; i < width - length + 1; i++)
 			buffer[i] = padd;
 		buffer[i] = '\0';
-		if (flags & F_MINUS && padd == ' ')/* Asign extra char to left of buffer */
+		if (flags & F_MINUS && padd == ' ')/* asign extraCharToLeft of buffer */
 		{
 			if (extra_c)
 				buffer[--ind] = extra_c;
 			return (write(1, &buffer[ind], length) + write(1, &buffer[1], i - 1));
 		}
-		else if (!(flags & F_MINUS) && padd == ' ')/* extra char to left of buff */
+		else if (!(flags & F_MINUS) && padd == ' ')/* extraCharToLeft of buff */
 		{
 			if (extra_c)
 				buffer[--ind] = extra_c;
 			return (write(1, &buffer[1], i - 1) + write(1, &buffer[ind], length));
 		}
-		else if (!(flags & F_MINUS) && padd == '0')/* extra char to left of padd */
+		else if (!(flags & F_MINUS) && padd == '0')/* extraCharToLeft of padd */
 		{
 			if (extra_c)
 				buffer[--padd_start] = extra_c;
@@ -168,11 +168,11 @@ int writeUnsgnd(int is_negative, int ind,
 		for (i = 0; i < width - length; i++)
 			buffer[i] = padd;
 		buffer[i] = '\0';
-		if (flags & F_MINUS) /* Asign extra char to left of buffer [buffer>padd]*/
+		if (flags & F_MINUS) /* asign extraCharToLeft of buffer [buffer>padd]*/
 		{
 			return (write(1, &buffer[ind], length) + write(1, &buffer[0], i));
 		}
-		else /* Asign extra char to left of padding [padd>buffer]*/
+		else /* asign extraCharToLeft of padding [padd>buffer]*/
 		{
 			return (write(1, &buffer[0], i) + write(1, &buffer[ind], length));
 		}
@@ -204,7 +204,7 @@ int writePointer(char buffer[], int ind, int length,
 		for (i = 3; i < width - length + 3; i++)
 			buffer[i] = padd;
 		buffer[i] = '\0';
-		if (flags & F_MINUS && padd == ' ')/* Asign extra char to left of buffer */
+		if (flags & F_MINUS && padd == ' ')/* asign extraCharToLeft of buffer */
 		{
 			buffer[--ind] = 'x';
 			buffer[--ind] = '0';
@@ -212,7 +212,7 @@ int writePointer(char buffer[], int ind, int length,
 				buffer[--ind] = extra_c;
 			return (write(1, &buffer[ind], length) + write(1, &buffer[3], i - 3));
 		}
-		else if (!(flags & F_MINUS) && padd == ' ')/* extra char to left of buffer */
+		else if (!(flags & F_MINUS) && padd == ' ')/* extraCharToLeft of buffer */
 		{
 			buffer[--ind] = 'x';
 			buffer[--ind] = '0';
@@ -220,7 +220,7 @@ int writePointer(char buffer[], int ind, int length,
 				buffer[--ind] = extra_c;
 			return (write(1, &buffer[3], i - 3) + write(1, &buffer[ind], length));
 		}
-		else if (!(flags & F_MINUS) && padd == '0')/* extra char to left of padd */
+		else if (!(flags & F_MINUS) && padd == '0')/* extraCharToLeft of padd */
 		{
 			if (extra_c)
 				buffer[--padd_start] = extra_c;

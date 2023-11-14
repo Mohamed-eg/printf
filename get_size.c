@@ -8,6 +8,7 @@
  */
 int getSize(const char *format, int *i)
 {
+	/*hh h l ll i z t l */
 	int curr_i = *i + 1;
 	int size = 0;
 

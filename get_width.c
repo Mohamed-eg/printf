@@ -9,6 +9,7 @@
  */
 int getWidth(const char *format, int *i, va_list list)
 {
+	/* numbers * */
 	int curr_i;
 	int width = 0;
 
